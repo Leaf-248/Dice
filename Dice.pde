@@ -2,27 +2,30 @@ int sum = 0;
 
 void setup()
 {
-  size(400, 400);
+  size(400, 420);
   background(150);
 
 }
 void draw(){
+  fill(0);
+  background(155);
+  sum = 0;
   Die bob = new Die (10, 10);
   bob.show();
   noLoop();
-  println("Total: " + sum);
+  fill(0);
+  text("Total: " + sum, 180, 415);
   
 }
 
 void mousePressed(){
+
   redraw();
-  sum = 0;
 }
 
 class Die{ //models one single dice cube
 
   int myX, myY, rollNum;
-  //int sum = 0;
   
   Die(int x, int y){ //constructor
     myX = x; 
@@ -30,8 +33,9 @@ class Die{ //models one single dice cube
   }
   
   void roll(){
+    fill(0);
     rollNum=(int)(Math.random()*6+1); 
-          sum = sum + rollNum;
+    sum = sum + rollNum;
   }
   
   
@@ -46,9 +50,9 @@ class Die{ //models one single dice cube
         myY = y;
         fill(r, g, b);
         rect(x, y, 40, 40);
-        r=r+2;
-        g=g+2;
-        b=b+2;
+        r=r+4;
+        g=g+3;
+        b=b+3;
         roll();
 
     if (rollNum ==1){
